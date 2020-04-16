@@ -1,14 +1,18 @@
 from typing import Any
 
+from hw5.color_style_codes import BackgroundColorCode
+from hw5.color_style_codes import TextColorCode
+from hw5.color_style_codes import TextStyleCode
+
 
 class ColorizeMixin:
     """
     Миксин для цветного форматирования вывода
     """
 
-    TEXT_COLOR_CODE = 30
-    TEXT_STYLE_CODE = 1
-    BACKGROUND_COLOR_CODE = 41
+    TEXT_COLOR_CODE = TextColorCode.BLACK
+    TEXT_STYLE_CODE = TextStyleCode.BRIGHT
+    BACKGROUND_COLOR_CODE = BackgroundColorCode.RED
 
     NORMILIZE_COLOR_TEMPLATE = "\033[0;0;0m"
 
