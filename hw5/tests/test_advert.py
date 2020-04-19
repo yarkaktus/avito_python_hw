@@ -16,9 +16,7 @@ dog_advert = {
     "title": "Вельш-корги",
     "price": 1000,
     "class": "dogs",
-    "location": {
-        "address": "сельское поселение Ельдигинское, поселок санатория Тишково, 25"
-    },
+    "location": {"address": "сельское поселение Ельдигинское, поселок санатория Тишково, 25"},
 }
 
 
@@ -46,6 +44,13 @@ def test_default_price():
     }
     advert = Advert(advert_dict)
     assert advert.price == 0
+
+
+def test_bad_attribute():
+    advert_dict = {"something": 1, "title": "test title", "price": 200}
+    with pytest.raises(AttributeError):
+        advert = Advert(advert_dict)
+        advert.bad_attr
 
 
 def test_bad_price_type():
@@ -98,7 +103,4 @@ def test_colorized_advert():
     DEFAULT_COLOR_TEMPLATE = "\033[1;30;41m"
     NORMILIZE_COLOR_TEMPLATE = "\033[0;0;0m"
 
-    assert (
-        repr(advert)
-        == DEFAULT_COLOR_TEMPLATE + "iPhone X | 100 ₽" + NORMILIZE_COLOR_TEMPLATE
-    )
+    assert repr(advert) == DEFAULT_COLOR_TEMPLATE + "iPhone X | 100 ₽" + NORMILIZE_COLOR_TEMPLATE

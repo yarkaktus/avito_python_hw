@@ -71,7 +71,7 @@ class ColorizedAdvert(ColorizeMixin, Advert):
     pass
 
 
-if __name__ == "__main__":
+if __name__ == "__main__":  # pragma: no cover
     iphone_advert = {
         "title": "iPhone X",
         "price": 100,
@@ -87,9 +87,7 @@ if __name__ == "__main__":
         "title": "Вельш-корги",
         "price": 1000,
         "class": "dogs",
-        "location": {
-            "address": "сельское поселение Ельдигинское, поселок санатория Тишково, 25"
-        },
+        "location": {"address": "сельское поселение Ельдигинское, поселок санатория Тишково, 25"},
     }
     color_advert = ColorizedAdvert(dog_advert)
     print(color_advert)
