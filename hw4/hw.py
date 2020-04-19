@@ -22,6 +22,7 @@ def ilen(iterable: Iterable) -> int:
 
 # 2. Написать функцию flatten, которая из многоуровневого массива сделает одноуровневый
 
+
 def flatten(iterable: Iterable) -> Iterable:
     """
     >>> list(flatten([0, [1, [2, 3]]]))

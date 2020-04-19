@@ -28,4 +28,4 @@ def test_str():
 
 def test_dict():
     assert ilen(dict()) == 0
-    assert ilen(dict({'1': 1, '2': 2, '3': 3})) == 3
+    assert ilen(dict({"1": 1, "2": 2, "3": 3})) == 3

@@ -28,4 +28,4 @@ def test_str():
 
 def test_dict():
     assert first(dict()) is None
-    assert first(dict({'1': 1, '2': 2, '3': 3})) == "1"
+    assert first(dict({"1": 1, "2": 2, "3": 3})) == "1"
