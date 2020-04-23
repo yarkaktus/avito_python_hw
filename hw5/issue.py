@@ -1,3 +1,4 @@
+import keyword
 from typing import Any
 
 from hw5.color_style_codes import BackgroundColorCode
@@ -52,9 +53,29 @@ class Advert(object):
             else:
                 data["price"] = 0
 
-        self.data = data
+        self.data = self.prepare_dict(data)
+        self.main_level = main_level
+
+    @classmethod
+    def prepare_dict(cls, data: dict) -> dict:
+        if not isinstance(data, dict):
+            raise ValueError("data must be instance of dict")
+
+        new_data = {}
+        for key, value in data.items():
+            if keyword.iskeyword(key):
+                key += '_'
+
+            if isinstance(value, dict):
+                new_data[key] = cls.prepare_dict(value)
+            else:
+                new_data[key] = value
+        return new_data
 
     def __getattr__(self, item: str) -> Any:
+        if keyword.iskeyword(item):
+            item += '_'
+
         if item not in self.data:
             raise AttributeError
 
@@ -63,8 +84,10 @@ class Advert(object):
             return Advert(value, main_level=False)
         return value
 
-    def __repr__(self):
-        return f"{self.title} | {self.price} ₽"
+    def __repr__(self) -> str:
+        if self.main_level:
+            return f"{self.title} | {self.price} ₽"
+        return str(self.data)
 
 
 class ColorizedAdvert(ColorizeMixin, Advert):
@@ -91,6 +114,9 @@ if __name__ == "__main__":  # pragma: no cover
     }
     color_advert = ColorizedAdvert(dog_advert)
     print(color_advert)
+    print(getattr(color_advert, 'class'))
+    print(getattr(color_advert, 'class_'))
+    print(color_advert.location)
 
     color_advert.TEXT_COLOR_CODE = 36
     color_advert.TEXT_STYLE_CODE = 1

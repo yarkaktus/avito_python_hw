@@ -98,6 +98,13 @@ def test_iphone_advert():
     assert advert.location.metro_stations == ["Спортивная", "Гагаринская"]
 
 
+def test_data_with_keyword():
+    advert = Advert(dog_advert)
+    assert advert.class_ == 'dogs'
+    assert getattr(advert, 'class') == 'dogs'
+    assert getattr(advert, 'class_') == 'dogs'
+
+
 def test_colorized_advert():
     advert = ColorizedAdvert(iphone_advert)
     DEFAULT_COLOR_TEMPLATE = "\033[1;30;41m"
