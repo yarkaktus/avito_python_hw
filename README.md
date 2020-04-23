@@ -44,3 +44,8 @@ python -m pytest hw4 --doctest-modules
 ```shell script
 python -m pytest hw5
 ```
+### Homework 6
+Запуск тестов
+```shell script
+python -m pytest hw6
+```
