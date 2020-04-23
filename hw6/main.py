@@ -19,7 +19,7 @@ class Advert(BaseModel):
         return f"{self.title} {self.price}"
 
 
-if __name__ == "__main__":
+if __name__ == "__main__":  # pragma: no cover
     db.connect()
     db.create_tables([Advert])
 

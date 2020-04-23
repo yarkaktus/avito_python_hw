@@ -71,8 +71,6 @@ class SqliteDatabase:
     def __init__(self, database: str) -> None:
         if database == ":memory:":
             self.database = database
-        else:
-            self.database = database
 
     def connect(self):
         self.conn = sqlite3.connect(self.database)
