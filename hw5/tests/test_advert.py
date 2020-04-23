@@ -16,7 +16,9 @@ dog_advert = {
     "title": "Вельш-корги",
     "price": 1000,
     "class": "dogs",
-    "location": {"address": "сельское поселение Ельдигинское, поселок санатория Тишково, 25"},
+    "location": {
+        "address": "сельское поселение Ельдигинское, поселок санатория Тишково, 25"
+    },
 }
 
 
@@ -100,9 +102,9 @@ def test_iphone_advert():
 
 def test_data_with_keyword():
     advert = Advert(dog_advert)
-    assert advert.class_ == 'dogs'
-    assert getattr(advert, 'class') == 'dogs'
-    assert getattr(advert, 'class_') == 'dogs'
+    assert advert.class_ == "dogs"
+    assert getattr(advert, "class") == "dogs"
+    assert getattr(advert, "class_") == "dogs"
 
 
 def test_colorized_advert():
@@ -110,4 +112,7 @@ def test_colorized_advert():
     DEFAULT_COLOR_TEMPLATE = "\033[1;30;41m"
     NORMILIZE_COLOR_TEMPLATE = "\033[0;0;0m"
 
-    assert repr(advert) == DEFAULT_COLOR_TEMPLATE + "iPhone X | 100 ₽" + NORMILIZE_COLOR_TEMPLATE
+    assert (
+        repr(advert)
+        == DEFAULT_COLOR_TEMPLATE + "iPhone X | 100 ₽" + NORMILIZE_COLOR_TEMPLATE
+    )

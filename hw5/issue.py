@@ -64,7 +64,7 @@ class Advert(object):
         new_data = {}
         for key, value in data.items():
             if keyword.iskeyword(key):
-                key += '_'
+                key += "_"
 
             if isinstance(value, dict):
                 new_data[key] = cls.prepare_dict(value)
@@ -74,7 +74,7 @@ class Advert(object):
 
     def __getattr__(self, item: str) -> Any:
         if keyword.iskeyword(item):
-            item += '_'
+            item += "_"
 
         if item not in self.data:
             raise AttributeError
@@ -110,12 +110,14 @@ if __name__ == "__main__":  # pragma: no cover
         "title": "Вельш-корги",
         "price": 1000,
         "class": "dogs",
-        "location": {"address": "сельское поселение Ельдигинское, поселок санатория Тишково, 25"},
+        "location": {
+            "address": "сельское поселение Ельдигинское, поселок санатория Тишково, 25"
+        },
     }
     color_advert = ColorizedAdvert(dog_advert)
     print(color_advert)
-    print(getattr(color_advert, 'class'))
-    print(getattr(color_advert, 'class_'))
+    print(getattr(color_advert, "class"))
+    print(getattr(color_advert, "class_"))
     print(color_advert.location)
 
     color_advert.TEXT_COLOR_CODE = 36
