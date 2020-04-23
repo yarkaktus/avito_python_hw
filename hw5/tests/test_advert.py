@@ -107,6 +107,14 @@ def test_data_with_keyword():
     assert getattr(advert, "class_") == "dogs"
 
 
+def test_set_price():
+    advert = Advert(iphone_advert)
+    assert advert.title == "iPhone X"
+    assert advert.price == 100
+    advert.price = 200
+    assert advert.price == 200
+
+
 def test_colorized_advert():
     advert = ColorizedAdvert(iphone_advert)
     DEFAULT_COLOR_TEMPLATE = "\033[1;30;41m"

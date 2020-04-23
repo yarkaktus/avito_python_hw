@@ -89,6 +89,16 @@ class Advert(object):
             return f"{self.title} | {self.price} ₽"
         return str(self.data)
 
+    @property
+    def price(self):
+        return self.data.get('price', 0)
+
+    @price.setter
+    def price(self, value):
+        if value < 0:
+            raise ValueError
+        self.data['price'] = value
+
 
 class ColorizedAdvert(ColorizeMixin, Advert):
     pass
@@ -119,6 +129,8 @@ if __name__ == "__main__":  # pragma: no cover
     print(getattr(color_advert, "class"))
     print(getattr(color_advert, "class_"))
     print(color_advert.location)
+    color_advert.price = 111
+    print(color_advert)
 
     color_advert.TEXT_COLOR_CODE = 36
     color_advert.TEXT_STYLE_CODE = 1
