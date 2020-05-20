@@ -4,7 +4,6 @@ from datetime import datetime
 
 import pytest
 
-from hw7.aio_server import HELP_TEXT
 from hw7.aio_server import callback
 
 
@@ -80,10 +79,18 @@ async def test_help(unused_port: int, event_loop: AbstractEventLoop):
     reader, writer = await asyncio.open_connection(host, port)
 
     message = 'bad message'
-    answer = HELP_TEXT
+    answer = "Команды:\n" \
+             "- echo <message> – возвращает присланное сообщение\n" \
+             "- calendar – возвращает клиенту текущее время в формате dd.mm.YYYY HH:MM\n" \
+             "- stop – закрывает сервер \n" \
+             "любая другая команда – вывод сообщения о доступных командах"
+
     writer.write(message.encode())
-    data = await reader.read(100)
-    assert answer.encode().decode().strip() == data.decode().strip()
+    data = await reader.read(2000)
+    assert answer.strip() == data.decode().strip()
 
     server.close()
     await server.wait_closed()
+#
+# Команды:\n- echo <message> – возвращает присланное сообщение\n- calend
+# Команды:\n- echo <message> – возвращает присланное сообщение\n-
