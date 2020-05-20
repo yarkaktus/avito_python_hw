@@ -61,3 +61,7 @@ python -m pytest hw7
 ```shell script
 python -m pytest hw9
 ```
+Просмотр данных, собранных профилировщиком 
+```shell script
+snakeviz hw9/program.prof
+```
