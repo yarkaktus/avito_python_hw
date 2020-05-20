@@ -49,3 +49,15 @@ python -m pytest hw5
 ```shell script
 python -m pytest hw6
 ```
+
+### Homework 7
+Запуск тестов
+```shell script
+python -m pytest hw7
+```
+
+### Homework 9
+Запуск тестов
+```shell script
+python -m pytest hw9
+```
