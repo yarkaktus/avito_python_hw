@@ -91,6 +91,3 @@ async def test_help(unused_port: int, event_loop: AbstractEventLoop):
 
     server.close()
     await server.wait_closed()
-#
-# Команды:\n- echo <message> – возвращает присланное сообщение\n- calend
-# Команды:\n- echo <message> – возвращает присланное сообщение\n-
