@@ -5,6 +5,14 @@ source venv/bin/activate
 pip3 install -r requirements.txt
 ```
 
+### Homework 1
+Oh my duck game
+
+Запуск игры
+```shell script
+python hw1/omd.py
+```
+
 ### Homework 3
 #### Issue 1
 ```shell script
