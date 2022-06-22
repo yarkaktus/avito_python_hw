@@ -7,7 +7,7 @@ entrypoints==0.3
 flake8==3.7.9
 mccabe==0.6.1
 more-itertools==8.2.0
-numpy==1.18.4
+numpy==1.22.0
 packaging==20.3
 pandas==1.0.3
 pathspec==0.8.0
